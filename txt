@@ -1,0 +1,21 @@
+<template>
+ 
+</template>
+<script>
+export default {
+    name:'',
+    components:{},
+    data(){
+        return{
+            sampleData:''
+        };
+    },
+    setup() {},
+    create() {},
+    mounted() {},
+    unmounted() {},
+    methods:{
+
+    }
+}
+</script>
