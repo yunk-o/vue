@@ -1,11 +1,10 @@
 <template>
-   <div>
-       <input type="text" v-model="lastName">
-       <input type="text" v-model="firstName">
-       <h1>Hello, {{getFullName()}}</h1>
-       <h1>Hello, {{fullName}}</h1>
-       <h1>Hello, {{lastName}}{{firstName}}</h1>
-   </div>
+    <div>
+        <input type="text" v-model.number="x1">
+        <input type="text" v-model.number="x2">
+        <!-- <button type="button" @click="plusNumber">계산</button> -->
+        <input type="text" v-model="y" >
+    </div>
 </template>
 <script>
 export default {
@@ -13,24 +12,32 @@ export default {
     components:{},
     data(){
         return{
-           firstName:'윤경',
-           lastName:'오',
-
+            x1:0,
+            x2:0,
+            // y:0
         };
     },
-    computed:{
-        fullName(){
-            return this.lastName + this.firstName;
+    // watch:{
+    //     x1(){
+    //         this.y = this.x1 + this.x2;
+    //     },
+    //     x2(){
+    //         this.y = this.x1 + this.x2;
+    //     }
+    // },
+    computed: {
+        y(){
+            return this.x1 + this.x2;
         }
     },
     setup() {},
     create() {},
-    mounted() {}, 
+    mounted() {},
     unmounted() {},
     methods:{
-        getFullName(){
-            return this.lastName + this.firstName;
-        }
+       plusNumber(){
+           this.y = this.x1 + this.x2;
+       } 
     }
 }
 </script>
