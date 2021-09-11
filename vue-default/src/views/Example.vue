@@ -1,26 +1,34 @@
 <template>
-    <div>
-        <!-- <img v-bind:src="url" alt=""> -->
-        <input type="text" v-model="textValue">
-        <button type="button" v-bind:disabled="textValue==''">Click</button>
-    </div>
+    <!-- <div class="container" v-bind:class="{'active':isActive,'text-red':isRed}"> Class Binding</div> -->
+    <div v-bind:style="styleObject">인라인 스타일 Binding</div>
 </template>
 <script>
 export default {
-    name:'',
-    components:{},
+ 
     data(){
         return{
-            url:"https://img.khan.co.kr/news/2006/12/07/6l07k11a.webp",
-            textValue:''
+            styleObject:{
+                backgroundColor:"yellow",
+                color:"red",
+                fontWeight:"bold"
+            }
+            // isActive:true,
+            // isRed:true,
         };
-    },
-    setup() {},
-    create() {},
-    mounted() {},
-    unmounted() {},
-    methods:{
-
     }
 }
 </script>
+<style>
+.container {
+    width:100%; 
+    height:100px;
+}
+.active {
+    background: yellow;
+    font-weight: bolder;
+}
+.text-red{
+    color:red
+}
+
+</style>
