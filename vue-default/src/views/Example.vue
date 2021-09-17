@@ -1,9 +1,9 @@
 <template>
     <div>
-        <input type="text" v-model.number="x1">
+        <input type="text" v-model.number="x1">22
         <input type="text" v-model.number="x2">
         <!-- <button type="button" @click="plusNumber">계산</button> -->
-        <input type="text" v-model="y" >
+        <!-- <input type="text" v-model="y" > -->
     </div>
 </template>
 <script>
