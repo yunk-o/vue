@@ -1,31 +1,9 @@
 <template>
-    <div>
-        <div>
-            <select v-model="selectedCity">
-                <option :value="city.code" :key="i" v-for="(city,i) in cityList">{{city.name}}</option>
-            </select>
-            <input type="text" v-model="userName" @keyup.enter="searchUserList">
-            <button @click="searchUserList">조회</button>
-            <!-- <button @click="alert('조회')">조회cc</button> -->
-        </div>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>이름</th>
-                        <th>나이</th>
-                        <th>직업</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr :key="i" v-for="(person,i) in userList">
-                        <td>{{person.name}}</td>
-                        <td>{{person.age}}</td>
-                        <td>{{person.job}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div>   
+        <input type="text" v-model="name" @keyup.enter="saveUserInfo">
+        <input type="text" v-model.number="age" @keyup.enter="saveUserInfo">
+        <input type="text" v-model="job" @keyup.enter="saveUserInfo">
+        <button @click="saveUserInfo" >저장</button>
     </div>
 </template>
 <script>
@@ -34,14 +12,9 @@ export default {
     components:{},
     data(){
         return{
-            cityList:[
-                {name:'서울',code:'02'},
-                {name:'부산',code:'21'},
-                {name:'제주',code:'064'}
-            ],
-            selectedCity:'',
-            userName:'',
-            userList: []
+            name:'',
+            age:0,
+            job:''
         };
     },
     setup() {},
@@ -49,27 +22,33 @@ export default {
     mounted() {},
     unmounted() {},
     methods:{
-      searchUserList(){
-        //   const selectedCity = this.selectedCity;
-        //   const userName = this.userName 
-        const params = {
-            selectedCity : this.selectedCity,
-            userName : this.userName 
-        }
+        saveUserInfo(){
+            if(this.name == ''){
+                return alert("사용자 이름을 입력하세요.")
+                // return this.$swal('사용자 이름을 입력하세요.')
+            } 
+            
+            if(this.age == '' || this.age == ''){
+                return alert("나이를 입력하세요.")
+            }
 
-        this.userList = this.getUserList(params);
-      },
-      getUserList(params){
-          console.log(params);
+            const params = {
+                name: this.name,
+                age: this.age,
+                job: this.job
+            }
 
-          let list = [
-            {name:'유재석', age:50, job:"연예인"},
-            {name:'하하', age:40, job:"연예인"},
-            {name:'양세찬', age:37, job:"연예인"},
-            {name:'김종국', age:46, job:"연예인"},
-          ];
-          return list;
-      }  
+            const r = this.saveData(params);
+             if(r == "S") {
+                  alert("사용자 정보가 생성 되었습니다")
+             }
+        },
+        saveData(params) {
+            console.log(params)
+            const r = "S";
+            return r;
+
+        } 
     }
 }
 </script>
