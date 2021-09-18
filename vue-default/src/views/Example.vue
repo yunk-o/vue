@@ -6,7 +6,7 @@
             </select>
             <input type="text" v-model="userName">
             <!-- <button @click="searchUserList">조회</button> -->
-            <button @click="alert('조회')">조회</button>
+            <button @click="alert('조회')">조회cc</button>
         </div>
         <div>
             <table>
