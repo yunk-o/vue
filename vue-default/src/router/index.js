@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
+// import Example from '../views/Example.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     component: Contact
   },
   {
+    path: '/example',
+    name: 'Example',
+    component: () => import(/* webpackChunkName: "example" */ '../views/Example.vue')
+  },
+  {
     path: '/basic',
     name: 'Basic',
     // route level code-splitting
@@ -42,11 +48,7 @@ const routes = [
     name: 'DataBindingHtml',
     component: () => import(/* webpackChunkName: "about" */ '../views/DataBindingHtml.vue')
   },
-  {
-    path: '/example',
-    name: 'Example',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Example.vue')
-  }
+
 ]
 
 const router = new VueRouter({
