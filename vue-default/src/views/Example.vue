@@ -1,5 +1,6 @@
 <template>
     <div>
+<<<<<<< HEAD
         <div>
             <select v-model="selectedCity">
                 <option :value="city.code" :key="i" v-for="(city,i) in cityList">{{city.name}}</option>
@@ -26,6 +27,12 @@
                 </tbody>
             </table>
         </div>
+=======
+        <input type="text" v-model.number="x1">
+        <input type="text" v-model.number="x2">
+        <!-- <button type="button" @click="plusNumber">계산</button> -->
+        <!-- <input type="text" v-model="y" > -->
+>>>>>>> c9ef26d6ef1a810d863ac3cb7f61063a3de03b50
     </div>
 </template>
 <script>
